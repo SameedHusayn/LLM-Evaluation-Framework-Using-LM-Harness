@@ -5,6 +5,10 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from lm_eval.api.registry import register_model
 from lm_eval.models.api_models import TemplateAPI
 from lm_eval.utils import eval_logger
+from dotenv import load_dotenv
+
+# Load the environment variables from the .env file
+load_dotenv('api.env')
 
 
 @register_model("local-completions")
