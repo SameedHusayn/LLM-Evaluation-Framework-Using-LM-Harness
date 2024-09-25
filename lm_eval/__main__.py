@@ -9,7 +9,7 @@ from lm_eval.loggers import EvaluationTracker, WandbLogger
 from lm_eval.tasks import TaskManager
 from lm_eval.utils import handle_non_serializable, make_table, simple_parse_args_string
 
-def evaluate_main(params: dict) -> None:
+def validate_params(params: dict) -> None:
     # Set up logging
     eval_logger = utils.eval_logger
     eval_logger.setLevel(getattr(logging, params['verbosity']))
@@ -173,10 +173,9 @@ def evaluate_main(params: dict) -> None:
 if __name__ == "__main__":
     
     model_name = "davinci-002"
-    tasks = "hellaswag"
-    output_path = "D:\\Code\\Python\\office\\lm-evaluation-harness\\"+model_name+"_"+tasks.replace(",","_")+"\\"
+    tasks = "mmlu_anatomy,hellaswag,mmlu_astronomy"
+    output_path = "D:\\Code\\Python\\office\\lm-evaluation-harness\\results\\"+model_name+"_"+tasks.replace(",","_")+"\\"
 
-    # Define your parameters here
     params = {
         "model": "openai-completions",
         "model_args": "model="+model_name,
@@ -206,4 +205,4 @@ if __name__ == "__main__":
         "trust_remote_code": False,
     }
 
-    evaluate_main(params)
+    validate_params(params)
