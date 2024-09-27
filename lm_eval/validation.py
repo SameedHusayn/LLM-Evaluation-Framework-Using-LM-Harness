@@ -220,7 +220,7 @@ def validate_params(params: dict) -> None:
 #         "gen_kwargs": None,
 #         "verbosity": "INFO",
 #         "wandb_args": "",
-#         "hf_hub_log_args": "hub_results_org=SameedHussain,push_results_to_hub=True,push_samples_to_hub=True,token=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,public_repo=True",
+#         "hf_hub_log_args": "hub_results_org=SameedHussain,push_results_to_hub=True,push_samples_to_hub=True,token=,public_repo=True",
 #         "predict_only": False,
 #         "seed": [0, 1234, 1234, 1234],
 #         "trust_remote_code": True,
