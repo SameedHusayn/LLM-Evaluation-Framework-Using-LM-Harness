@@ -57,3 +57,5 @@ wandb==0.18.1
 word2number==1.1
 zeno_client==0.1.16
 zstandard==0.23.0
+pyngrok==7.2.0
+
