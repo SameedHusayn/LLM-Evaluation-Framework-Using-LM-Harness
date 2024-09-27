@@ -1,208 +1,231 @@
-import json
-import logging
-import os
-import sys
+from validation import validate_params
 
-from lm_eval import evaluator, utils
-from lm_eval.evaluator import request_caching_arg_to_dict
-from lm_eval.loggers import EvaluationTracker, WandbLogger
-from lm_eval.tasks import TaskManager
-from lm_eval.utils import handle_non_serializable, make_table, simple_parse_args_string
+import streamlit as st
+import threading
+import uvicorn
+from fastapi import FastAPI, Request
+import streamlit as st
+from validation import validate_params
 
-def validate_params(params: dict) -> None:
-    # Set up logging
-    eval_logger = utils.eval_logger
-    eval_logger.setLevel(getattr(logging, params['verbosity']))
-    eval_logger.info(f"Verbosity set to {params['verbosity']}")
-    os.environ["TOKENIZERS_PARALLELISM"] = "false"
+# FastAPI app
+app = FastAPI()
 
-    # Set up WandbLogger if needed
-    if params['wandb_args']:
-        wandb_logger = WandbLogger(**simple_parse_args_string(params['wandb_args']))
+# Streamlit interface setup
+def run_streamlit():
+    # Define all tasks
+    all_tasks = [
+        "anli", "arc_challenge", "arithmetic", "asdiv", "bigbench_multiple_choice", 
+        "blimp", "commonsense_qa", "coqa", "drop", "eq_bench", "fda", "glue", 
+        "gpqa", "gsm8k", "hellaswag", "inverse_scaling_mc", "lambada", "leaderboard", 
+        "mathqa", "med_concepts_qa", "mmlu", "mmlusr", "mutual", "qasper", 
+        "squadv2", "super-glue-lm-eval-v1", "truthfulqa", "unscramble", "wikitext"
+    ]
 
-    # Update evaluation tracker args
-    if params['output_path']:
-        params['hf_hub_log_args'] += f",output_path={params['output_path']}"
-    if os.environ.get("HF_TOKEN", None):
-        params['hf_hub_log_args'] += f",token={os.environ.get('HF_TOKEN')}"
-    evaluation_tracker_args = simple_parse_args_string(params['hf_hub_log_args'])
-    evaluation_tracker = EvaluationTracker(**evaluation_tracker_args)
+    # Define recommended tasks
+    recommended_tasks = ["glue", "mmlu", "hellaswag", "truthfulqa","anli"]
 
-    if params['predict_only']:
-        params['log_samples'] = True
-    if (params['log_samples'] or params['predict_only']) and not params['output_path']:
-        raise ValueError(
-            "Specify --output_path if providing --log_samples or --predict_only"
-        )
+    # Combine options with "all" and "recommended"
+    tasks_options = ["all", "recommended"] + all_tasks
 
-    if params['fewshot_as_multiturn'] and params['apply_chat_template'] is False:
-        raise ValueError(
-            "When `fewshot_as_multiturn` is selected, `apply_chat_template` must be set (either to `True` or to the chosen template name)."
-        )
+    # Initialize session state for selected_tasks if not already set
+    if 'selected_tasks' not in st.session_state:
+        st.session_state.selected_tasks = []
 
-    task_manager = TaskManager(params['verbosity'], include_path=params['include_path'])
+    # Callback function to handle selection logic
+    def handle_selection():
+        selected = st.session_state.selected_tasks.copy()
+        
+        # If "all" is selected
+        if "all" in selected:
+            # Select all individual tasks
+            st.session_state.selected_tasks = all_tasks.copy()
+        
+        # If "recommended" is selected
+        elif "recommended" in selected:
+            # Select recommended tasks
+            st.session_state.selected_tasks = recommended_tasks.copy()
+        
+        else:
+            # Ensure "all" and "recommended" are not in the selection
+            st.session_state.selected_tasks = [task for task in selected if task not in ["all", "recommended"]]
 
-    if "push_samples_to_hub" in evaluation_tracker_args and not params['log_samples']:
-        eval_logger.warning(
-            "Pushing samples to the Hub requires --log_samples to be set. Samples will not be pushed to the Hub."
-        )
+    # Streamlit UI
+    st.title("LLM Evaluation")
 
-    if params['limit']:
-        eval_logger.warning(
-            " --limit SHOULD ONLY BE USED FOR TESTING."
-            "REAL METRICS SHOULD NOT BE COMPUTED USING LIMIT."
-        )
-
-    # Handle tasks
-    if params['tasks'] is None:
-        eval_logger.error("Need to specify task to evaluate.")
-        sys.exit()
-    else:
-        task_list = params['tasks'].split(",")
-        task_names = task_manager.match_tasks(task_list)
-        for task in [task for task in task_list if task not in task_names]:
-            if os.path.isfile(task):
-                config = utils.load_yaml_config(task)
-                task_names.append(config)
-        task_missing = [
-            task for task in task_list if task not in task_names and "*" not in task
-        ]
-
-        if task_missing:
-            missing = ", ".join(task_missing)
-            eval_logger.error(
-                f"Tasks were not found: {missing}\n"
-                f"{utils.SPACING}Try `lm-eval --tasks list` for list of available tasks",
-            )
-            raise ValueError(
-                f"Tasks not found: {missing}. Try using valid task names."
-            )
-
-    # Handle trust_remote_code
-    if params['trust_remote_code']:
-        eval_logger.info(
-            "Passed `trust_remote_code=True`, setting environment variable `HF_DATASETS_TRUST_REMOTE_CODE=true`"
-        )
-        import datasets
-        datasets.config.HF_DATASETS_TRUST_REMOTE_CODE = True
-        params['model_args'] = params['model_args'] + ",trust_remote_code=True"
-
-    eval_logger.info(f"Selected Tasks: {task_names}")
-
-    request_caching_args = request_caching_arg_to_dict(
-        cache_requests=params['cache_requests']
+    # Multiselect with callback
+    selected_tasks = st.multiselect(
+        "Select one or multiple tasks",
+        options=tasks_options,
+        default=st.session_state.selected_tasks,
+        key='selected_tasks',
+        on_change=handle_selection
     )
 
-    results = evaluator.simple_evaluate(
-        model=params['model'],
-        model_args=params['model_args'],
-        tasks=task_names,
-        num_fewshot=params['num_fewshot'],
-        batch_size=params['batch_size'],
-        max_batch_size=params['max_batch_size'],
-        device=params['device'],
-        use_cache=params['use_cache'],
-        limit=params['limit'],
-        check_integrity=params['check_integrity'],
-        write_out=params['write_out'],
-        log_samples=params['log_samples'],
-        evaluation_tracker=evaluation_tracker,
-        system_instruction=params['system_instruction'],
-        apply_chat_template=params['apply_chat_template'],
-        fewshot_as_multiturn=params['fewshot_as_multiturn'],
-        gen_kwargs=params['gen_kwargs'],
-        task_manager=task_manager,
-        verbosity=params['verbosity'],
-        predict_only=params['predict_only'],
-        random_seed=params['seed'][0],
-        numpy_random_seed=params['seed'][1],
-        torch_random_seed=params['seed'][2],
-        fewshot_random_seed=params['seed'][3],
-        **request_caching_args,
-    )
+    # Determine the display based on selection
+    def get_display_tasks(selected):
+        if set(selected) == set(all_tasks):
+            return "All tasks selected."
+        elif set(selected) == set(recommended_tasks):
+            return "Recommended tasks selected: " + ", ".join(recommended_tasks)
+        else:
+            return ", ".join(selected) if selected else ""
 
-    if results is not None:
-        if params['log_samples']:
-            samples = results.pop("samples")
-        dumped = json.dumps(
-            results, indent=2, default=handle_non_serializable, ensure_ascii=False
-        )
-        if params['show_config']:
-            print(dumped)
+    display_tasks_str = get_display_tasks(selected_tasks)
 
-        batch_sizes = ",".join(map(str, results["config"]["batch_sizes"]))
+    # Only display selected tasks if there are any
+    if display_tasks_str:
+        st.write("**Selected Tasks:**", display_tasks_str)
 
-        # Add W&B logging
-        if params['wandb_args']:
-            try:
-                wandb_logger.post_init(results)
-                wandb_logger.log_eval_result()
-                if params['log_samples']:
-                    wandb_logger.log_eval_samples(samples)
-            except Exception as e:
-                eval_logger.info(f"Logging to Weights and Biases failed due to {e}")
+    # Input field for model name
+    model_name = st.text_input("Enter model name")
 
-        evaluation_tracker.save_results_aggregated(
-            results=results, samples=samples if params['log_samples'] else None
-        )
+    # Number of shots with conditional input
+    num_shots = None
+    set_num_shots = st.checkbox("Set Number of Shots?")
+    if set_num_shots:
+        num_shots = st.number_input("Enter number of shots", min_value=1, step=1)
 
-        if params['log_samples']:
-            for task_name, config in results["configs"].items():
-                evaluation_tracker.save_results_samples(
-                    task_name=task_name, samples=samples[task_name]
-                )
+    # Limit with conditional input
+    limit = None
+    set_limit = st.checkbox("Set Limit?")
+    if set_limit:
+        limit = st.number_input("Enter limit (float)", min_value=0.0, step=0.1, format="%.3f")
 
-        if (
-            evaluation_tracker.push_results_to_hub
-            or evaluation_tracker.push_samples_to_hub
-        ):
-            evaluation_tracker.recreate_metadata_card()
+    # Option to push results to hub
+    push_to_hub = st.checkbox("Do you want to push results to Hugging Face Hub?")
+    hf_org_name, hf_token, make_public = None, None, None
+    if push_to_hub:
+        hf_org_name = st.text_input("Enter Hugging Face Org Name")
+        hf_token = st.text_input("Enter Hugging Face Token", type="password")
+        make_public = st.checkbox("Make the repository public?")
+        hf_repo_name = st.checkbox("Do you want to set a repo name? (Default: lm-eval-results)")
+        if hf_repo_name:
+            hf_repo_name = st.text_input("Enter Repo Name")
+        else:
+            hf_repo_name = "lm-eval-results"
 
-        print(
-            f"{params['model']} ({params['model_args']}), gen_kwargs: ({params['gen_kwargs']}), limit: {params['limit']}, num_fewshot: {params['num_fewshot']}, "
-            f"batch_size: {params['batch_size']}{f' ({batch_sizes})' if batch_sizes else ''}"
-        )
-        print(make_table(results))
-        if "groups" in results:
-            print(make_table(results, "groups"))
 
-        if params['wandb_args']:
-            # Tear down wandb run once all the logging is done.
-            wandb_logger.run.finish()
+    # Function to process and display the results
+    def process_tasks(selected_tasks, model_name, num_shots, limit, push_to_hub, hf_org_name, hf_token, make_public):
+        st.write("**Processing the following tasks:**")
+        st.write(", ".join(selected_tasks))
+        st.write("**Model Name:**", model_name)
+        st.write("**Number of Shots:**", num_shots if num_shots is not None else "Not set")
+        st.write("**Limit:**", limit if limit is not None else "Not set")
+        
+        if push_to_hub:
+            st.write("**Push to Hub Settings:**")
+            st.write("Hugging Face Username:", hf_org_name)
+            st.write("Hugging Face Token:", "******" if hf_token else "Not set")
+            st.write("Public:", "True" if make_public else "False")
+        else:
+            st.write("Not pushing results to hub.")
+        
+        # Simulate result processing and return a message
+        st.success("Results processed successfully!")
 
+    # Process the information when the user clicks the button
+    if st.button("Submit"):
+        if not selected_tasks:
+            st.error("Please select at least one task.")
+        elif not model_name:
+            st.error("Please enter the model name.")
+        elif push_to_hub and (not hf_org_name or not hf_token):
+            st.error("Please provide all Hugging Face Hub details.")
+        else:
+            output_path = "D:\\Code\\Python\\office\\LLM-Evaluation-Framework-Using-LM-Harness\\results\\"+model_name+"\\"
+            selected_tasks = ','.join(selected_tasks)
+            print(selected_tasks)
+            
+            if push_to_hub:
+                hf_hub_log_args = "hub_results_org="+hf_org_name+",push_results_to_hub=True,push_samples_to_hub=True,token="+hf_token+",hub_repo_name="+hf_repo_name+",details_repo_name="+hf_repo_name+",public_repo="+str(make_public)
+            else:
+                hf_hub_log_args = ""            
+            
+            params = {
+                "model": "openai-completions",
+                "model_args": "model="+model_name,
+                "tasks": selected_tasks,
+                "num_fewshot": num_shots,
+                "batch_size": 1,
+                "max_batch_size": None,
+                "device": None,
+                "output_path": output_path,
+                "limit": limit,
+                "use_cache": None,
+                "cache_requests": True,
+                "check_integrity": False,
+                "write_out": False,
+                "log_samples": True,
+                "system_instruction": None,
+                "apply_chat_template": False,
+                "fewshot_as_multiturn": False,
+                "show_config": False,
+                "include_path": None,
+                "gen_kwargs": None,
+                "verbosity": "INFO",
+                "wandb_args": "",
+                "hf_hub_log_args": hf_hub_log_args,
+                "predict_only": False,
+                "seed": [0, 1234, 1234, 1234],
+                "trust_remote_code": True,
+
+            }
+            processed_results, group_results = validate_params(params)
+            if group_results == None:
+                st.write(processed_results)
+                print(processed_results)
+            else:
+                print(processed_results)
+                print(group_results)
+                st.write(processed_results)
+                st.write(group_results)
+
+def convert_params(params):
+    """
+    Converts string representations of booleans and None to actual Python types.
+    """
+    for key, value in params.items():
+        if isinstance(value, str):
+            if value.lower() == "true":
+                params[key] = True
+            elif value.lower() == "false":
+                params[key] = False
+            elif value.lower() == "none":
+                params[key] = None
+    return params
+
+# FastAPI route to accept POST requests
+@app.post("/validate")
+async def validate(request: Request):
+    data = await request.json()
+    params = data.get("params", {})
+    # Convert string values to their appropriate types
+    params = convert_params(params)
+
+    processed_results, group_results = validate_params(params)
+    return {"processed_results": processed_results, "group_results": group_results}
+
+# Run FastAPI server on a separate thread
+def run_fastapi():
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+# Run Streamlit on a separate thread
+def run_streamlit():
+    # Use os.system to run Streamlit with subprocess
+    import os
+    os.system("streamlit run __main__.py --server.port 8501")
+
+# Main function to run both FastAPI and Streamlit
 if __name__ == "__main__":
-    
-    model_name = "davinci-002"
-    tasks = "mmlu_anatomy,hellaswag,mmlu_astronomy"
-    output_path = "D:\\Code\\Python\\office\\lm-evaluation-harness\\results\\"+model_name+"_"+tasks.replace(",","_")+"\\"
+    # Create two threads: one for FastAPI, one for Streamlit
+    fastapi_thread = threading.Thread(target=run_fastapi)
+    streamlit_thread = threading.Thread(target=run_streamlit)
 
-    params = {
-        "model": "openai-completions",
-        "model_args": "model="+model_name,
-        "tasks": tasks,
-        "num_fewshot": 0,
-        "batch_size": 1,
-        "max_batch_size": None,
-        "device": None,
-        "output_path": output_path,
-        "limit": 0.01,
-        "use_cache": None,
-        "cache_requests": None,
-        "check_integrity": False,
-        "write_out": False,
-        "log_samples": False,
-        "system_instruction": None,
-        "apply_chat_template": False,
-        "fewshot_as_multiturn": False,
-        "show_config": False,
-        "include_path": None,
-        "gen_kwargs": None,
-        "verbosity": "INFO",
-        "wandb_args": "",
-        "hf_hub_log_args": "",
-        "predict_only": False,
-        "seed": [0, 1234, 1234, 1234],
-        "trust_remote_code": False,
-    }
+    # Start the threads
+    fastapi_thread.start()
+    streamlit_thread.start()
 
-    validate_params(params)
+    # Keep the threads running
+    fastapi_thread.join()
+    streamlit_thread.join()

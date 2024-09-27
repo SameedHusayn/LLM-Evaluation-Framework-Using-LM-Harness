@@ -460,7 +460,6 @@ class EvaluationTracker:
                 card_metadata[config_name]["data_files"].append(
                     {"split": "latest", "path": [str(results_filename)]}
                 )
-
         # Get latest results and extract info to update metadata card examples
         latest_datetime = max(latest_task_results_datetime.values())
         latest_model_name = max(

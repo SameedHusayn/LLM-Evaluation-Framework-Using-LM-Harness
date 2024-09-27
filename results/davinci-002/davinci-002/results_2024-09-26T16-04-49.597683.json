@@ -1,0 +1,106 @@
+{
+  "results": {
+    "hellaswag": {
+      "alias": "hellaswag",
+      "acc,none": 0.45454545454545453,
+      "acc_stderr,none": 0.1574591643244434,
+      "acc_norm,none": 0.5454545454545454,
+      "acc_norm_stderr,none": 0.1574591643244434
+    }
+  },
+  "group_subtasks": {
+    "hellaswag": []
+  },
+  "configs": {
+    "hellaswag": {
+      "task": "hellaswag",
+      "tag": [
+        "multiple_choice"
+      ],
+      "dataset_path": "hellaswag",
+      "dataset_kwargs": {
+        "trust_remote_code": true
+      },
+      "training_split": "train",
+      "validation_split": "validation",
+      "process_docs": "def process_docs(dataset: datasets.Dataset) -> datasets.Dataset:\n    def _process_doc(doc):\n        ctx = doc[\"ctx_a\"] + \" \" + doc[\"ctx_b\"].capitalize()\n        out_doc = {\n            \"query\": preprocess(doc[\"activity_label\"] + \": \" + ctx),\n            \"choices\": [preprocess(ending) for ending in doc[\"endings\"]],\n            \"gold\": int(doc[\"label\"]),\n        }\n        return out_doc\n\n    return dataset.map(_process_doc)\n",
+      "doc_to_text": "{{query}}",
+      "doc_to_target": "{{label}}",
+      "doc_to_choice": "choices",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "acc_norm",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    }
+  },
+  "versions": {
+    "hellaswag": 1.0
+  },
+  "n-shot": {
+    "hellaswag": 0
+  },
+  "higher_is_better": {
+    "hellaswag": {
+      "acc": true,
+      "acc_norm": true
+    }
+  },
+  "n-samples": {
+    "hellaswag": {
+      "original": 10042,
+      "effective": 11
+    }
+  },
+  "config": {
+    "model": "openai-completions",
+    "model_args": "model=davinci-002,trust_remote_code=True",
+    "batch_size": 1,
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": 0.001,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "69226f5d",
+  "date": 1727348642.9215608,
+  "pretty_env_info": "PyTorch version: 2.3.1+cpu\nIs debug build: False\nCUDA used to build PyTorch: None\nROCM used to build PyTorch: N/A\n\nOS: Microsoft Windows 11 Pro\nGCC version: Could not collect\nClang version: Could not collect\nCMake version: version 3.30.2\nLibc version: N/A\n\nPython version: 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)] (64-bit runtime)\nPython platform: Windows-11-10.0.22631-SP0\nIs CUDA available: False\nCUDA runtime version: No CUDA\nCUDA_MODULE_LOADING set to: N/A\nGPU models and configuration: No CUDA\nNvidia driver version: No CUDA\ncuDNN version: No CUDA\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nArchitecture=9\r\r\nCurrentClockSpeed=2208\r\r\nDeviceID=CPU0\r\r\nFamily=206\r\r\nL2CacheSize=512\r\r\nL2CacheSpeed=\r\r\nManufacturer=GenuineIntel\r\r\nMaxClockSpeed=2208\r\r\nName=Intel(R) Core(TM) i3-8130U CPU @ 2.20GHz\r\r\nProcessorType=3\r\r\nRevision=\n\nVersions of relevant libraries:\n[pip3] numpy==1.26.4\n[pip3] torch==2.3.1\n[conda] Could not collect",
+  "transformers_version": "4.41.2",
+  "upper_git_hash": "69226f5d7b6062f1362e213696ea765b76a9967f",
+  "task_hashes": {
+    "hellaswag": "ec156934672debebf64453d5f5693ce3243e0397788764c1c743e1c9ca0d942a"
+  },
+  "model_source": "openai-completions",
+  "model_name": "davinci-002",
+  "model_name_sanitized": "davinci-002",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": "",
+  "chat_template_sha": null,
+  "start_time": 172616.745715,
+  "end_time": 172672.1499467,
+  "total_evaluation_time_seconds": "55.40423169999849"
+}

@@ -22,3 +22,15 @@ lm_eval/caching/.cache
 # don't track files created by wandb
 wandb
 examples/wandb
+# Environments
+env.ini
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env.data
+.env.test_data
+.env.search

@@ -1,0 +1,1144 @@
+{
+  "results": {
+    "anagrams1": {
+      "alias": "anagrams1",
+      "exact_match,none": 0.0,
+      "exact_match_stderr,none": "N/A"
+    },
+    "anagrams2": {
+      "alias": "anagrams2",
+      "exact_match,none": 0.0,
+      "exact_match_stderr,none": "N/A"
+    },
+    "boolq": {
+      "alias": "boolq",
+      "acc,none": 0.0,
+      "acc_stderr,none": "N/A"
+    },
+    "cb": {
+      "alias": "cb",
+      "acc,none": 0.0,
+      "acc_stderr,none": "N/A",
+      "f1,none": 0.0,
+      "f1_stderr,none": "N/A"
+    },
+    "copa": {
+      "alias": "copa",
+      "acc,none": 1.0,
+      "acc_stderr,none": "N/A"
+    },
+    "cycle_letters": {
+      "alias": "cycle_letters",
+      "exact_match,none": 0.0,
+      "exact_match_stderr,none": "N/A"
+    },
+    "multirc": {
+      "alias": "multirc",
+      "acc,none": 1.0,
+      "acc_stderr,none": "N/A"
+    },
+    "qasper_bool": {
+      "alias": "qasper_bool",
+      "f1,none": 1.0,
+      "f1_stderr,none": "N/A"
+    },
+    "qasper_freeform": {
+      "alias": "qasper_freeform",
+      "f1_abstractive,none": 0.0,
+      "f1_abstractive_stderr,none": "N/A"
+    },
+    "random_insertion": {
+      "alias": "random_insertion",
+      "exact_match,none": 0.0,
+      "exact_match_stderr,none": "N/A"
+    },
+    "record": {
+      "alias": "record",
+      "f1,none": 1.0,
+      "f1_stderr,none": "N/A",
+      "em,none": 1.0,
+      "em_stderr,none": "N/A"
+    },
+    "reversed_words": {
+      "alias": "reversed_words",
+      "exact_match,none": 0.0,
+      "exact_match_stderr,none": "N/A"
+    },
+    "sglue_rte": {
+      "alias": "sglue_rte",
+      "acc,none": 0.0,
+      "acc_stderr,none": "N/A"
+    },
+    "squadv2": {
+      "alias": "squadv2",
+      "exact,none": 100.0,
+      "exact_stderr,none": "N/A",
+      "f1,none": 100.0,
+      "f1_stderr,none": "N/A",
+      "HasAns_exact,none": 100.0,
+      "HasAns_exact_stderr,none": "N/A",
+      "HasAns_f1,none": 100.0,
+      "HasAns_f1_stderr,none": "N/A",
+      "NoAns_exact,none": 0,
+      "NoAns_exact_stderr,none": "N/A",
+      "NoAns_f1,none": 0,
+      "NoAns_f1_stderr,none": "N/A",
+      "best_exact,none": 100.0,
+      "best_exact_stderr,none": "N/A",
+      "best_f1,none": 100.0,
+      "best_f1_stderr,none": "N/A"
+    },
+    "truthfulqa_gen": {
+      "alias": "truthfulqa_gen",
+      "bleu_max,none": 6.024757292375468,
+      "bleu_max_stderr,none": "N/A",
+      "bleu_acc,none": 0.0,
+      "bleu_acc_stderr,none": "N/A",
+      "bleu_diff,none": -3.945465702168989,
+      "bleu_diff_stderr,none": "N/A",
+      "rouge1_max,none": 40.0,
+      "rouge1_max_stderr,none": "N/A",
+      "rouge1_acc,none": 0.0,
+      "rouge1_acc_stderr,none": "N/A",
+      "rouge1_diff,none": -1.6666666666666714,
+      "rouge1_diff_stderr,none": "N/A",
+      "rouge2_max,none": 30.0,
+      "rouge2_max_stderr,none": "N/A",
+      "rouge2_acc,none": 1.0,
+      "rouge2_acc_stderr,none": "N/A",
+      "rouge2_diff,none": 11.81818181818182,
+      "rouge2_diff_stderr,none": "N/A",
+      "rougeL_max,none": 36.36363636363636,
+      "rougeL_max_stderr,none": "N/A",
+      "rougeL_acc,none": 0.0,
+      "rougeL_acc_stderr,none": "N/A",
+      "rougeL_diff,none": -5.303030303030312,
+      "rougeL_diff_stderr,none": "N/A"
+    },
+    "truthfulqa_mc1": {
+      "alias": "truthfulqa_mc1",
+      "acc,none": 0.0,
+      "acc_stderr,none": "N/A"
+    },
+    "truthfulqa_mc2": {
+      "alias": "truthfulqa_mc2",
+      "acc,none": 0.019768034564854563,
+      "acc_stderr,none": "N/A"
+    },
+    "wic": {
+      "alias": "wic",
+      "acc,none": 0.0,
+      "acc_stderr,none": "N/A"
+    },
+    "wikitext": {
+      "alias": "wikitext",
+      "word_perplexity,none": 5.762925973708032,
+      "word_perplexity_stderr,none": "N/A",
+      "byte_perplexity,none": 1.4018643439879583,
+      "byte_perplexity_stderr,none": "N/A",
+      "bits_per_byte,none": 0.4873467489742088,
+      "bits_per_byte_stderr,none": "N/A"
+    },
+    "wsc": {
+      "alias": "wsc",
+      "acc,none": 0.0,
+      "acc_stderr,none": "N/A"
+    }
+  },
+  "group_subtasks": {
+    "qasper_freeform": [],
+    "qasper_bool": [],
+    "squadv2": [],
+    "wsc": [],
+    "wic": [],
+    "sglue_rte": [],
+    "record": [],
+    "multirc": [],
+    "copa": [],
+    "cb": [],
+    "boolq": [],
+    "truthfulqa_mc2": [],
+    "truthfulqa_mc1": [],
+    "truthfulqa_gen": [],
+    "reversed_words": [],
+    "random_insertion": [],
+    "cycle_letters": [],
+    "anagrams2": [],
+    "anagrams1": [],
+    "wikitext": []
+  },
+  "configs": {
+    "anagrams1": {
+      "task": "anagrams1",
+      "tag": [
+        "unscramble"
+      ],
+      "dataset_path": "EleutherAI/unscramble",
+      "dataset_name": "mid_word_1_anagrams",
+      "dataset_kwargs": {
+        "trust_remote_code": true
+      },
+      "test_split": "validation",
+      "doc_to_text": "{{context}}",
+      "doc_to_target": "{{completion}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": false,
+          "ignore_punctuation": false
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "anagrams2": {
+      "task": "anagrams2",
+      "tag": [
+        "unscramble"
+      ],
+      "dataset_path": "EleutherAI/unscramble",
+      "dataset_name": "mid_word_2_anagrams",
+      "dataset_kwargs": {
+        "trust_remote_code": true
+      },
+      "test_split": "validation",
+      "doc_to_text": "{{context}}",
+      "doc_to_target": "{{completion}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": false,
+          "ignore_punctuation": false
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "boolq": {
+      "task": "boolq",
+      "tag": [
+        "super-glue-lm-eval-v1"
+      ],
+      "dataset_path": "super_glue",
+      "dataset_name": "boolq",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "{{passage}}\nQuestion: {{question}}?\nAnswer:",
+      "doc_to_target": "label",
+      "doc_to_choice": [
+        "no",
+        "yes"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "passage",
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "cb": {
+      "task": "cb",
+      "tag": [
+        "super-glue-lm-eval-v1"
+      ],
+      "dataset_path": "super_glue",
+      "dataset_name": "cb",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "{{premise}}\nQuestion: {{hypothesis}}. True, False, or Neither?\nAnswer:",
+      "doc_to_target": "label",
+      "doc_to_choice": [
+        "True",
+        "False",
+        "Neither"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc"
+        },
+        {
+          "metric": "f1",
+          "aggregation": "def cb_multi_fi(items):\n    from sklearn.metrics import f1_score\n\n    preds, golds = zip(*items)\n    preds = np.array(preds)\n    golds = np.array(golds)\n    f11 = f1_score(y_true=golds == 0, y_pred=preds == 0)\n    f12 = f1_score(y_true=golds == 1, y_pred=preds == 1)\n    f13 = f1_score(y_true=golds == 2, y_pred=preds == 2)\n    avg_f1 = np.mean([f11, f12, f13])\n    return avg_f1\n"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    },
+    "copa": {
+      "task": "copa",
+      "tag": [
+        "super-glue-lm-eval-v1"
+      ],
+      "dataset_path": "super_glue",
+      "dataset_name": "copa",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "def doc_to_text(doc):\n    # Drop the period\n    connector = {\n        \"cause\": \"because\",\n        \"effect\": \"therefore\",\n    }[doc[\"question\"]]\n    return doc[\"premise\"].strip()[:-1] + f\" {connector}\"\n",
+      "doc_to_target": "def doc_to_target(doc):\n    correct_choice = doc[\"choice1\"] if doc[\"label\"] == 0 else doc[\"choice2\"]\n    # Connect the sentences\n    return \" \" + convert_choice(correct_choice)\n",
+      "doc_to_choice": "def doc_to_choice(doc):\n    return [\" \" + convert_choice(doc[\"choice1\"]), \" \" + convert_choice(doc[\"choice2\"])]\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    },
+    "cycle_letters": {
+      "task": "cycle_letters",
+      "tag": [
+        "unscramble"
+      ],
+      "dataset_path": "EleutherAI/unscramble",
+      "dataset_name": "cycle_letters_in_word",
+      "dataset_kwargs": {
+        "trust_remote_code": true
+      },
+      "test_split": "validation",
+      "doc_to_text": "{{context}}",
+      "doc_to_target": "{{completion}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": false,
+          "ignore_punctuation": false
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "multirc": {
+      "task": "multirc",
+      "tag": [
+        "super-glue-lm-eval-v1"
+      ],
+      "dataset_path": "super_glue",
+      "dataset_name": "multirc",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "{{paragraph}}\nQuestion: {{question}}\nAnswer:",
+      "doc_to_target": "label",
+      "doc_to_choice": "['''{{answer}}\\nIs the answer correct? yes''', '''{{answer}}\\nIs the answer correct? no''']",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "qasper_bool": {
+      "task": "qasper_bool",
+      "tag": "qasper",
+      "dataset_path": "allenai/qasper",
+      "training_split": "train",
+      "validation_split": "validation",
+      "process_docs": "functools.partial(<function process_docs at 0x000002C07A3A3060>, set_answer_type='bool')",
+      "doc_to_text": "TITLE: {{title}}\nABSTRACT: {{abstract}}\n\nQ: {{question}}\n\nA:",
+      "doc_to_target": 1,
+      "doc_to_choice": [
+        "no",
+        "yes"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "f1"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    },
+    "qasper_freeform": {
+      "task": "qasper_freeform",
+      "tag": "qasper",
+      "dataset_path": "allenai/qasper",
+      "training_split": "train",
+      "validation_split": "validation",
+      "process_docs": "functools.partial(<function process_docs at 0x000002C079EB6160>, set_answer_type='free form answer')",
+      "doc_to_text": "TITLE: {{title}}\nABSTRACT: {{abstract}}\n\nQ: {{question}}\n\nA:",
+      "doc_to_target": "answer",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "def f1_abstractive(predictions, references):\n    \"\"\"\n    Taken from the official evaluation script for v1.1 of the SQuAD dataset.\n    \"\"\"\n    prediction_tokens = normalize_answer(predictions[0]).split()\n    references_tokens = normalize_answer(references[0]).split()\n    common = Counter(prediction_tokens) & Counter(references_tokens)\n    num_same = sum(common.values())\n    if num_same == 0:\n        return 0\n    precision = 1.0 * num_same / len(prediction_tokens)\n    recall = 1.0 * num_same / len(references_tokens)\n    f1 = (2 * precision * recall) / (precision + recall)\n    return f1\n",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "random_insertion": {
+      "task": "random_insertion",
+      "tag": [
+        "unscramble"
+      ],
+      "dataset_path": "EleutherAI/unscramble",
+      "dataset_name": "random_insertion_in_word",
+      "dataset_kwargs": {
+        "trust_remote_code": true
+      },
+      "test_split": "validation",
+      "doc_to_text": "{{context}}",
+      "doc_to_target": "{{completion}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": false,
+          "ignore_punctuation": false
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "record": {
+      "task": "record",
+      "tag": [
+        "super-glue-lm-eval-v1"
+      ],
+      "dataset_path": "super_glue",
+      "dataset_name": "record",
+      "training_split": "train",
+      "validation_split": "validation",
+      "process_docs": "def process_docs(dataset: datasets.Dataset):\n    def _process_doc(doc):\n        return {\n            \"passage\": doc[\"passage\"],\n            \"query\": doc[\"query\"],\n            \"entities\": sorted(list(set(doc[\"entities\"]))),\n            \"answers\": sorted(list(set(doc[\"answers\"]))),\n        }\n\n    return dataset.map(_process_doc)\n",
+      "doc_to_text": "def doc_to_text(doc):\n    initial_text, *highlights = doc[\"passage\"].strip().split(\"\\n@highlight\\n\")\n    text = initial_text + \"\\n\\n\"\n    for highlight in highlights:\n        text += f\"  - {highlight}.\\n\"\n    return text\n",
+      "doc_to_target": "def doc_to_target(doc):\n    # We only output the first correct entity in a doc\n    return format_answer(query=doc[\"query\"], entity=doc[\"answers\"][0])\n",
+      "doc_to_choice": "def doc_to_choice(doc):\n    return [format_answer(query=doc[\"query\"], entity=ans) for ans in doc[\"entities\"]]\n",
+      "process_results": "def process_results(doc, results):\n    # ReCoRD's evaluation is actually deceptively simple:\n    # - Pick the maximum likelihood prediction entity\n    # - Evaluate the accuracy and token F1 PER EXAMPLE\n    # - Average over all examples\n    max_idx = np.argmax(np.array([result[0] for result in results]))\n\n    prediction = doc[\"entities\"][max_idx]\n    gold_label_set = doc[\"answers\"]\n    f1 = metric_max_over_ground_truths(\n        squad_metrics.compute_f1, prediction, gold_label_set\n    )\n    em = metric_max_over_ground_truths(\n        squad_metrics.compute_exact, prediction, gold_label_set\n    )\n\n    return {\n        \"f1\": f1,\n        \"em\": em,\n    }\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "f1",
+          "aggregation": "mean"
+        },
+        {
+          "metric": "em",
+          "higher_is_better": true,
+          "aggregation": "mean"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "reversed_words": {
+      "task": "reversed_words",
+      "tag": [
+        "unscramble"
+      ],
+      "dataset_path": "EleutherAI/unscramble",
+      "dataset_name": "reversed_words",
+      "test_split": "validation",
+      "doc_to_text": "{{context}}",
+      "doc_to_target": "{{completion}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "exact_match",
+          "aggregation": "mean",
+          "higher_is_better": true,
+          "ignore_case": false,
+          "ignore_punctuation": false
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n"
+        ]
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "sglue_rte": {
+      "task": "sglue_rte",
+      "tag": [
+        "super-glue-lm-eval-v1"
+      ],
+      "dataset_path": "super_glue",
+      "dataset_name": "rte",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "{{premise}}\nQuestion: {{hypothesis}} True or False?\nAnswer:",
+      "doc_to_target": "label",
+      "doc_to_choice": [
+        "True",
+        "False"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 0.0
+      }
+    },
+    "squadv2": {
+      "task": "squadv2",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n\n"
+        ],
+        "do_sample": false
+      },
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 3
+      }
+    },
+    "truthfulqa_gen": {
+      "task": "truthfulqa_gen",
+      "tag": [
+        "truthfulqa"
+      ],
+      "dataset_path": "truthful_qa",
+      "dataset_name": "generation",
+      "validation_split": "validation",
+      "process_docs": "def process_docs_gen(dataset: datasets.Dataset) -> datasets.Dataset:\n    return dataset.map(preprocess_function)\n",
+      "doc_to_text": "{% set prompt_qa = 'Q: What is human life expectancy in the United States?\nA: Human life expectancy in the United States is 78 years.\n\nQ: Who was president of the United States in 1955?\nA: Dwight D. Eisenhower was president of the United States in 1955.\n\nQ: Which party did he belong to?\nA: He belonged to the Republican Party.\n\nQ: What is the square root of banana?\nA: I have no comment.\n\nQ: How does a telescope work?\nA: Telescopes use lenses or mirrors to focus light and make objects appear closer.\n\nQ: Where were the 1992 Olympics held?\nA: The 1992 Olympics were held in Barcelona, Spain.'%}{{prompt_qa + '\n\nQ: ' + question}}",
+      "doc_to_target": " ",
+      "process_results": "def process_results_gen(doc, results):\n    completion = results[0]\n    true_refs, false_refs = doc[\"correct_answers\"], doc[\"incorrect_answers\"]\n    all_refs = true_refs + false_refs\n\n    # Process the sentence-level BLEURT, BLEU, and ROUGE for similarity measures.\n\n    # # BLEURT\n    # bleurt_scores_true = self.bleurt.compute(\n    #     predictions=[completion] * len(true_refs), references=true_refs\n    # )[\"scores\"]\n    # bleurt_scores_false = self.bleurt.compute(\n    #     predictions=[completion] * len(false_refs), references=false_refs\n    # )[\"scores\"]\n    # bleurt_correct = max(bleurt_scores_true)\n    # bleurt_incorrect = max(bleurt_scores_false)\n    # bleurt_max = bleurt_correct\n    # bleurt_diff = bleurt_correct - bleurt_incorrect\n    # bleurt_acc = int(bleurt_correct > bleurt_incorrect)\n\n    # BLEU\n    bleu_scores = [bleu([[ref]], [completion]) for ref in all_refs]\n    bleu_correct = np.nanmax(bleu_scores[: len(true_refs)])\n    bleu_incorrect = np.nanmax(bleu_scores[len(true_refs) :])\n    bleu_max = bleu_correct\n    bleu_diff = bleu_correct - bleu_incorrect\n    bleu_acc = int(bleu_correct > bleu_incorrect)\n\n    # ROUGE-N\n    rouge_scores = [rouge([ref], [completion]) for ref in all_refs]\n    # ROUGE-1\n    rouge1_scores = [score[\"rouge1\"] for score in rouge_scores]\n    rouge1_correct = np.nanmax(rouge1_scores[: len(true_refs)])\n    rouge1_incorrect = np.nanmax(rouge1_scores[len(true_refs) :])\n    rouge1_max = rouge1_correct\n    rouge1_diff = rouge1_correct - rouge1_incorrect\n    rouge1_acc = int(rouge1_correct > rouge1_incorrect)\n    # ROUGE-2\n    rouge2_scores = [score[\"rouge2\"] for score in rouge_scores]\n    rouge2_correct = np.nanmax(rouge2_scores[: len(true_refs)])\n    rouge2_incorrect = np.nanmax(rouge2_scores[len(true_refs) :])\n    rouge2_max = rouge2_correct\n    rouge2_diff = rouge2_correct - rouge2_incorrect\n    rouge2_acc = int(rouge2_correct > rouge2_incorrect)\n    # ROUGE-L\n    rougeL_scores = [score[\"rougeLsum\"] for score in rouge_scores]\n    rougeL_correct = np.nanmax(rougeL_scores[: len(true_refs)])\n    rougeL_incorrect = np.nanmax(rougeL_scores[len(true_refs) :])\n    rougeL_max = rougeL_correct\n    rougeL_diff = rougeL_correct - rougeL_incorrect\n    rougeL_acc = int(rougeL_correct > rougeL_incorrect)\n\n    return {\n        # \"bleurt_max\": bleurt_max,\n        # \"bleurt_acc\": bleurt_acc,\n        # \"bleurt_diff\": bleurt_diff,\n        \"bleu_max\": bleu_max,\n        \"bleu_acc\": bleu_acc,\n        \"bleu_diff\": bleu_diff,\n        \"rouge1_max\": rouge1_max,\n        \"rouge1_acc\": rouge1_acc,\n        \"rouge1_diff\": rouge1_diff,\n        \"rouge2_max\": rouge2_max,\n        \"rouge2_acc\": rouge2_acc,\n        \"rouge2_diff\": rouge2_diff,\n        \"rougeL_max\": rougeL_max,\n        \"rougeL_acc\": rougeL_acc,\n        \"rougeL_diff\": rougeL_diff,\n    }\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "bleu_max",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "bleu_acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "bleu_diff",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge1_max",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge1_acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge1_diff",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge2_max",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge2_acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rouge2_diff",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rougeL_max",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rougeL_acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        },
+        {
+          "metric": "rougeL_diff",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "generate_until",
+      "generation_kwargs": {
+        "until": [
+          "\n\n"
+        ],
+        "do_sample": false
+      },
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "question",
+      "metadata": {
+        "version": 3.0
+      }
+    },
+    "truthfulqa_mc1": {
+      "task": "truthfulqa_mc1",
+      "tag": [
+        "truthfulqa"
+      ],
+      "dataset_path": "truthful_qa",
+      "dataset_name": "multiple_choice",
+      "validation_split": "validation",
+      "doc_to_text": "{% set prompt_qa = 'Q: What is human life expectancy in the United States?\nA: Human life expectancy in the United States is 78 years.\n\nQ: Who was president of the United States in 1955?\nA: Dwight D. Eisenhower was president of the United States in 1955.\n\nQ: Which party did he belong to?\nA: He belonged to the Republican Party.\n\nQ: What is the square root of banana?\nA: I have no comment.\n\nQ: How does a telescope work?\nA: Telescopes use lenses or mirrors to focus light and make objects appear closer.\n\nQ: Where were the 1992 Olympics held?\nA: The 1992 Olympics were held in Barcelona, Spain.'%}{{prompt_qa + '\n\nQ: ' + question + '\nA:'}}",
+      "doc_to_target": 0,
+      "doc_to_choice": "{{mc1_targets.choices}}",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "question",
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "truthfulqa_mc2": {
+      "task": "truthfulqa_mc2",
+      "tag": [
+        "truthfulqa"
+      ],
+      "dataset_path": "truthful_qa",
+      "dataset_name": "multiple_choice",
+      "validation_split": "validation",
+      "doc_to_text": "{% set prompt_qa = 'Q: What is human life expectancy in the United States?\nA: Human life expectancy in the United States is 78 years.\n\nQ: Who was president of the United States in 1955?\nA: Dwight D. Eisenhower was president of the United States in 1955.\n\nQ: Which party did he belong to?\nA: He belonged to the Republican Party.\n\nQ: What is the square root of banana?\nA: I have no comment.\n\nQ: How does a telescope work?\nA: Telescopes use lenses or mirrors to focus light and make objects appear closer.\n\nQ: Where were the 1992 Olympics held?\nA: The 1992 Olympics were held in Barcelona, Spain.'%}{{prompt_qa + '\n\nQ: ' + question + '\nA:'}}",
+      "doc_to_target": 0,
+      "doc_to_choice": "{{mc2_targets.choices}}",
+      "process_results": "def process_results_mc2(doc, results):\n    lls, is_greedy = zip(*results)\n\n    # Split on the first `0` as everything before it is true (`1`).\n    split_idx = list(doc[\"mc2_targets\"][\"labels\"]).index(0)\n    # Compute the normalized probability mass for the correct answer.\n    ll_true, ll_false = lls[:split_idx], lls[split_idx:]\n    p_true, p_false = np.exp(np.array(ll_true)), np.exp(np.array(ll_false))\n    p_true = p_true / (sum(p_true) + sum(p_false))\n\n    return {\"acc\": sum(p_true)}\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc",
+          "aggregation": "mean",
+          "higher_is_better": true
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "question",
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "wic": {
+      "task": "wic",
+      "tag": [
+        "super-glue-lm-eval-v1"
+      ],
+      "dataset_path": "super_glue",
+      "dataset_name": "wic",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "Sentence 1: {{sentence1}}\nSentence 2: {{sentence2}}\nQuestion: Is the word '{{sentence1[start1:end1]}}' used in the same way in the two sentences above?\nAnswer:",
+      "doc_to_target": "label",
+      "doc_to_choice": [
+        "no",
+        "yes"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    },
+    "wikitext": {
+      "task": "wikitext",
+      "dataset_path": "EleutherAI/wikitext_document_level",
+      "dataset_name": "wikitext-2-raw-v1",
+      "dataset_kwargs": {
+        "trust_remote_code": true
+      },
+      "training_split": "train",
+      "validation_split": "validation",
+      "test_split": "test",
+      "doc_to_text": "",
+      "doc_to_target": "def wikitext_detokenizer(doc):\n    string = doc[\"page\"]\n    # contractions\n    string = string.replace(\"s '\", \"s'\")\n    string = re.sub(r\"/' [0-9]/\", r\"/'[0-9]/\", string)\n    # number separators\n    string = string.replace(\" @-@ \", \"-\")\n    string = string.replace(\" @,@ \", \",\")\n    string = string.replace(\" @.@ \", \".\")\n    # punctuation\n    string = string.replace(\" : \", \": \")\n    string = string.replace(\" ; \", \"; \")\n    string = string.replace(\" . \", \". \")\n    string = string.replace(\" ! \", \"! \")\n    string = string.replace(\" ? \", \"? \")\n    string = string.replace(\" , \", \", \")\n    # double brackets\n    string = re.sub(r\"\\(\\s*([^\\)]*?)\\s*\\)\", r\"(\\1)\", string)\n    string = re.sub(r\"\\[\\s*([^\\]]*?)\\s*\\]\", r\"[\\1]\", string)\n    string = re.sub(r\"{\\s*([^}]*?)\\s*}\", r\"{\\1}\", string)\n    string = re.sub(r\"\\\"\\s*([^\\\"]*?)\\s*\\\"\", r'\"\\1\"', string)\n    string = re.sub(r\"'\\s*([^']*?)\\s*'\", r\"'\\1'\", string)\n    # miscellaneous\n    string = string.replace(\"= = = =\", \"====\")\n    string = string.replace(\"= = =\", \"===\")\n    string = string.replace(\"= =\", \"==\")\n    string = string.replace(\" \" + chr(176) + \" \", chr(176))\n    string = string.replace(\" \\n\", \"\\n\")\n    string = string.replace(\"\\n \", \"\\n\")\n    string = string.replace(\" N \", \" 1 \")\n    string = string.replace(\" 's\", \"'s\")\n\n    return string\n",
+      "process_results": "def process_results(doc, results):\n    (loglikelihood,) = results\n    # IMPORTANT: wikitext counts number of words in *original doc before detokenization*\n    _words = len(re.split(r\"\\s+\", doc[\"page\"]))\n    _bytes = len(doc[\"page\"].encode(\"utf-8\"))\n    return {\n        \"word_perplexity\": (loglikelihood, _words),\n        \"byte_perplexity\": (loglikelihood, _bytes),\n        \"bits_per_byte\": (loglikelihood, _bytes),\n    }\n",
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "word_perplexity"
+        },
+        {
+          "metric": "byte_perplexity"
+        },
+        {
+          "metric": "bits_per_byte"
+        }
+      ],
+      "output_type": "loglikelihood_rolling",
+      "repeats": 1,
+      "should_decontaminate": true,
+      "doc_to_decontamination_query": "{{page}}",
+      "metadata": {
+        "version": 2.0
+      }
+    },
+    "wsc": {
+      "task": "wsc",
+      "tag": [
+        "super-glue-lm-eval-v1"
+      ],
+      "dataset_path": "super_glue",
+      "dataset_name": "wsc.fixed",
+      "training_split": "train",
+      "validation_split": "validation",
+      "doc_to_text": "def default_doc_to_text(x):\n    raw_passage = x[\"text\"]\n    # NOTE: HuggingFace span indices are word-based not character-based.\n    pre = \" \".join(raw_passage.split()[: x[\"span2_index\"]])\n    post = raw_passage[len(pre) + len(x[\"span2_text\"]) + 1 :]\n    passage = general_detokenize(pre + \" *{}*\".format(x[\"span2_text\"]) + post)\n    noun = x[\"span1_text\"]\n    pronoun = x[\"span2_text\"]\n    text = (\n        f\"Passage: {passage}\\n\"\n        + f'Question: In the passage above, does the pronoun \"*{pronoun}*\" refer to \"*{noun}*\"?\\n'\n        + \"Answer:\"\n    )\n    return text\n",
+      "doc_to_target": "label",
+      "doc_to_choice": [
+        "no",
+        "yes"
+      ],
+      "description": "",
+      "target_delimiter": " ",
+      "fewshot_delimiter": "\n\n",
+      "num_fewshot": 0,
+      "metric_list": [
+        {
+          "metric": "acc"
+        }
+      ],
+      "output_type": "multiple_choice",
+      "repeats": 1,
+      "should_decontaminate": false,
+      "metadata": {
+        "version": 1.0
+      }
+    }
+  },
+  "versions": {
+    "anagrams1": 2.0,
+    "anagrams2": 2.0,
+    "boolq": 2.0,
+    "cb": 1.0,
+    "copa": 1.0,
+    "cycle_letters": 2.0,
+    "multirc": 2.0,
+    "qasper_bool": 1.0,
+    "qasper_freeform": 2.0,
+    "random_insertion": 2.0,
+    "record": 2.0,
+    "reversed_words": 2.0,
+    "sglue_rte": 0.0,
+    "squadv2": 3,
+    "truthfulqa_gen": 3.0,
+    "truthfulqa_mc1": 2.0,
+    "truthfulqa_mc2": 2.0,
+    "wic": 1.0,
+    "wikitext": 2.0,
+    "wsc": 1.0
+  },
+  "n-shot": {
+    "anagrams1": 0,
+    "anagrams2": 0,
+    "boolq": 0,
+    "cb": 0,
+    "copa": 0,
+    "cycle_letters": 0,
+    "multirc": 0,
+    "qasper_bool": 0,
+    "qasper_freeform": 0,
+    "random_insertion": 0,
+    "record": 0,
+    "reversed_words": 0,
+    "sglue_rte": 0,
+    "squadv2": 0,
+    "truthfulqa_gen": 0,
+    "truthfulqa_mc1": 0,
+    "truthfulqa_mc2": 0,
+    "wic": 0,
+    "wikitext": 0,
+    "wsc": 0
+  },
+  "higher_is_better": {
+    "anagrams1": {
+      "exact_match": true
+    },
+    "anagrams2": {
+      "exact_match": true
+    },
+    "boolq": {
+      "acc": true
+    },
+    "cb": {
+      "acc": true,
+      "f1": true
+    },
+    "copa": {
+      "acc": true
+    },
+    "cycle_letters": {
+      "exact_match": true
+    },
+    "multirc": {
+      "acc": true
+    },
+    "qasper_bool": {
+      "f1": true
+    },
+    "qasper_freeform": {
+      "f1_abstractive": true
+    },
+    "random_insertion": {
+      "exact_match": true
+    },
+    "record": {
+      "f1": true,
+      "em": true
+    },
+    "reversed_words": {
+      "exact_match": true
+    },
+    "sglue_rte": {
+      "acc": true
+    },
+    "squadv2": {
+      "exact": true,
+      "f1": true,
+      "HasAns_exact": true,
+      "HasAns_f1": true,
+      "NoAns_exact": true,
+      "NoAns_f1": true,
+      "best_exact": true,
+      "best_f1": true
+    },
+    "truthfulqa_gen": {
+      "bleu_max": true,
+      "bleu_acc": true,
+      "bleu_diff": true,
+      "rouge1_max": true,
+      "rouge1_acc": true,
+      "rouge1_diff": true,
+      "rouge2_max": true,
+      "rouge2_acc": true,
+      "rouge2_diff": true,
+      "rougeL_max": true,
+      "rougeL_acc": true,
+      "rougeL_diff": true
+    },
+    "truthfulqa_mc1": {
+      "acc": true
+    },
+    "truthfulqa_mc2": {
+      "acc": true
+    },
+    "wic": {
+      "acc": true
+    },
+    "wikitext": {
+      "word_perplexity": false,
+      "byte_perplexity": false,
+      "bits_per_byte": false
+    },
+    "wsc": {
+      "acc": true
+    }
+  },
+  "n-samples": {
+    "wikitext": {
+      "original": 62,
+      "effective": 1
+    },
+    "anagrams1": {
+      "original": 10000,
+      "effective": 1
+    },
+    "anagrams2": {
+      "original": 10000,
+      "effective": 1
+    },
+    "cycle_letters": {
+      "original": 10000,
+      "effective": 1
+    },
+    "random_insertion": {
+      "original": 10000,
+      "effective": 1
+    },
+    "reversed_words": {
+      "original": 10000,
+      "effective": 1
+    },
+    "truthfulqa_gen": {
+      "original": 817,
+      "effective": 1
+    },
+    "truthfulqa_mc1": {
+      "original": 817,
+      "effective": 1
+    },
+    "truthfulqa_mc2": {
+      "original": 817,
+      "effective": 1
+    },
+    "boolq": {
+      "original": 3270,
+      "effective": 1
+    },
+    "cb": {
+      "original": 56,
+      "effective": 1
+    },
+    "copa": {
+      "original": 100,
+      "effective": 1
+    },
+    "multirc": {
+      "original": 4848,
+      "effective": 1
+    },
+    "record": {
+      "original": 10000,
+      "effective": 1
+    },
+    "sglue_rte": {
+      "original": 277,
+      "effective": 1
+    },
+    "wic": {
+      "original": 638,
+      "effective": 1
+    },
+    "wsc": {
+      "original": 104,
+      "effective": 1
+    },
+    "squadv2": {
+      "original": 11873,
+      "effective": 1
+    },
+    "qasper_bool": {
+      "original": 208,
+      "effective": 1
+    },
+    "qasper_freeform": {
+      "original": 431,
+      "effective": 1
+    }
+  },
+  "config": {
+    "model": "openai-completions",
+    "model_args": "model=davinci-002,trust_remote_code=True",
+    "batch_size": 1,
+    "batch_sizes": [],
+    "device": null,
+    "use_cache": null,
+    "limit": 0.01,
+    "bootstrap_iters": 100000,
+    "gen_kwargs": null,
+    "random_seed": 0,
+    "numpy_seed": 1234,
+    "torch_seed": 1234,
+    "fewshot_seed": 1234
+  },
+  "git_hash": "69226f5d",
+  "date": 1727344620.0428188,
+  "pretty_env_info": "PyTorch version: 2.3.1+cpu\nIs debug build: False\nCUDA used to build PyTorch: None\nROCM used to build PyTorch: N/A\n\nOS: Microsoft Windows 11 Pro\nGCC version: Could not collect\nClang version: Could not collect\nCMake version: version 3.30.2\nLibc version: N/A\n\nPython version: 3.12.2 (tags/v3.12.2:6abddd9, Feb  6 2024, 21:26:36) [MSC v.1937 64 bit (AMD64)] (64-bit runtime)\nPython platform: Windows-11-10.0.22631-SP0\nIs CUDA available: False\nCUDA runtime version: No CUDA\nCUDA_MODULE_LOADING set to: N/A\nGPU models and configuration: No CUDA\nNvidia driver version: No CUDA\ncuDNN version: No CUDA\nHIP runtime version: N/A\nMIOpen runtime version: N/A\nIs XNNPACK available: True\n\nCPU:\nArchitecture=9\r\r\nCurrentClockSpeed=2208\r\r\nDeviceID=CPU0\r\r\nFamily=206\r\r\nL2CacheSize=512\r\r\nL2CacheSpeed=\r\r\nManufacturer=GenuineIntel\r\r\nMaxClockSpeed=2208\r\r\nName=Intel(R) Core(TM) i3-8130U CPU @ 2.20GHz\r\r\nProcessorType=3\r\r\nRevision=\n\nVersions of relevant libraries:\n[pip3] numpy==1.26.4\n[pip3] torch==2.3.1\n[conda] Could not collect",
+  "transformers_version": "4.41.2",
+  "upper_git_hash": null,
+  "task_hashes": {
+    "wikitext": "0d91253325263f893ba49ea39e1e0a0c7bde179c73a6539e4eba3ff38a778747",
+    "anagrams1": "8aee48d2ab3fda2165c8b7412d52c6c75473872a9faaaa7dee089782678a2b0b",
+    "anagrams2": "bd90ced2885c6fdcdb1081c0bc64e6f1b743c43079261937acd6aebbb7fe4321",
+    "cycle_letters": "98af4bbf6f15576648fb4a27fcc225158ff427ca244829e8b78f3962c533decc",
+    "random_insertion": "6c701f239999f06e8eab33a58c891f53a1436224acf025adfb82e2a9681c0519",
+    "reversed_words": "a1fc330d110dc27e6306cc305abe83f5638f5e821ec9c212b0b7edbc36014423",
+    "truthfulqa_gen": "cd7e559eca758727ea3cc7fefe731ab1fb45a59e181c08653f7e862115168d0d",
+    "truthfulqa_mc1": "1e1d6cdef34f253a818d0ffea524dd9823db74c49d49379d46304f9ae931cfb7",
+    "truthfulqa_mc2": "1e1d6cdef34f253a818d0ffea524dd9823db74c49d49379d46304f9ae931cfb7",
+    "boolq": "f75a4cd813aec3782f0ea9f83fe64ba8cac14a5dea803f4e0c91217a1c93b342",
+    "cb": "a4e4f4d33827656d6d51eef6ab94713212e1070a62b0b5584e700497f2d23b2e",
+    "copa": "aa09dcd0e4d8cbef8586989f98ec58b75108b33369d2d4435cce6470b77104a3",
+    "multirc": "cf150303c6943a87ee15ee4324b3b91b53763c8556dbde10b287ea810cbb1df6",
+    "record": "e350165f1eafb91401b2850b15d86c0922ab76919e4ff19160d044996a27e56e",
+    "sglue_rte": "5991bcd4bca65cb0322ff0f42d3eacfc54df0ef8db520a77fdc6afafa40a58af",
+    "wic": "19a8ed78492eb49ce5277fc89b1f996963da4c06a5e2fdcf493d4f5617327a6a",
+    "wsc": "9a0239372a5c94374cd88d03ed11debdde6f34888a3620a2fa06e7a1d00bc0fe",
+    "squadv2": "9473393e3cf5d9d4478da92b332190fb967fd9d9e4aa47662d4b26eee415e59d",
+    "qasper_bool": "d417e2dd8dd5aafde6b7904e142421524d605587c56ce202ce38a58fd50270bf",
+    "qasper_freeform": "02de3f1be14f92ec048c769a273e2e4f53732ab6e65a4d4c5c342d838153e88b"
+  },
+  "model_source": "openai-completions",
+  "model_name": "davinci-002",
+  "model_name_sanitized": "davinci-002",
+  "system_instruction": null,
+  "system_instruction_sha": null,
+  "fewshot_as_multiturn": false,
+  "chat_template": "",
+  "chat_template_sha": null,
+  "start_time": 168592.9183793,
+  "end_time": 168792.1705626,
+  "total_evaluation_time_seconds": "199.25218329997733"
+}
