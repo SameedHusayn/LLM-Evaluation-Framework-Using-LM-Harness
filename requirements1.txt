@@ -1,8 +1,0 @@
--e .
-langdetect
-immutabledict
-nltk
-streamlit
-pyngrok
-fastapi
-uvicorn
