@@ -2,7 +2,7 @@
 langdetect
 immutabledict
 nltk
-git+https://github.com/felipemaiapolo/tinyBenchmarks
 streamlit
 pyngrok
 fastapi
+uvicorn
