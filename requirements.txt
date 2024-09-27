@@ -21,7 +21,6 @@ numpy
 omegaconf==2.3.0
 packaging==24.1
 pandas==2.2.3
-lm-eval[promptsource]
 psutil==6.0.0
 pycountry==24.6.1
 pytablewriter==1.2.0
