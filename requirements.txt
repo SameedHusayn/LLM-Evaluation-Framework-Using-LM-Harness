@@ -18,7 +18,7 @@ mamba_ssm==2.2.2
 more_itertools==10.5.0
 nemo==6.0.3
 nltk==3.9.1
-numpy==2.1.1
+numpy
 omegaconf==2.3.0
 optimum==1.22.0
 packaging==24.1
